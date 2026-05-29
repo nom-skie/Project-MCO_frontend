@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Request — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Barangay Document System</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">← Dashboard</a>
+        <div class="nav-avatar" id="nav-avatar">JD</div>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body page-body-narrow">
+
+    <h1 class="page-title">New document request</h1>
+    <p class="page-subtitle">Fill in the details below to submit your request.</p>
+
+    <div class="steps">
+      <div class="step active" id="step-1-indicator">
+        <div class="step-num">1</div>
+        <span class="step-label">Document</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="step-2-indicator">
+        <div class="step-num">2</div>
+        <span class="step-label">Details</span>
+      </div>
+      <div class="step-line"></div>
+      <div class="step" id="step-3-indicator">
+        <div class="step-num">3</div>
+        <span class="step-label">Review</span>
+      </div>
+    </div>
+
+    <div id="step-1" class="card-sm">
+      <p class="wizard-step-title">Select document type</p>
+      <div id="doc-types" class="doc-types-grid">
+        <div class="doc-type-card" data-type="Barangay clearance" data-fee="50" onclick="selectDoc(this)">
+          <div class="doc-card-emoji">📜</div>
+          <div class="doc-card-title">Barangay clearance</div>
+          <div class="doc-card-price">₱50.00</div>
+        </div>
+        <div class="doc-type-card" data-type="Certificate of residency" data-fee="0" onclick="selectDoc(this)">
+          <div class="doc-card-emoji">🏠</div>
+          <div class="doc-card-title">Certificate of residency</div>
+          <div class="doc-card-price">Free</div>
+        </div>
+        <div class="doc-type-card" data-type="Business permit endorsement" data-fee="150" onclick="selectDoc(this)">
+          <div class="doc-card-emoji">💼</div>
+          <div class="doc-card-title">Business permit endorsement</div>
+          <div class="doc-card-price">₱150.00</div>
+        </div>
+        <div class="doc-type-card" data-type="Certificate of indigency" data-fee="0" onclick="selectDoc(this)">
+          <div class="doc-card-emoji">📄</div>
+          <div class="doc-card-title">Certificate of indigency</div>
+          <div class="doc-card-price">Free</div>
+        </div>
+      </div>
+      <p class="field-error hidden-step-element" id="doc-error">Please select a document type.</p>
+      <div class="wizard-action-end">
+        <button class="btn btn-primary" onclick="goStep(2)">Next →</button>
+      </div>
+    </div>
+
+    <div id="step-2" class="hidden-step-element">
+      <div class="card-sm spacing-bottom-md">
+        <p class="wizard-step-title">Your details</p>
+        <div class="form-grid-half">
+          <div class="form-group">
+            <label for="req-fname">First name</label>
+            <input type="text" id="req-fname" placeholder="Juan"/>
+          </div>
+          <div class="form-group">
+            <label for="req-lname">Last name</label>
+            <input type="text" id="req-lname" placeholder="dela Cruz"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="req-address">Complete address</label>
+          <input type="text" id="req-address" placeholder="House no., street, barangay"/>
+        </div>
+        <div class="form-group">
+          <label for="req-purpose">Purpose of request</label>
+          <select id="req-purpose">
+            <option value="">Select purpose…</option>
+            <option>Employment</option>
+            <option>Scholarship</option>
+            <option>Bank requirement</option>
+            <option>Travel</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group text-no-margin">
+          <label for="req-notes">Additional notes (optional)</label>
+          <textarea id="req-notes" placeholder="Any other information…"></textarea>
+        </div>
+      </div>
+
+      <div class="card-sm spacing-bottom-md">
+        <p class="wizard-step-subtitle">Supporting documents</p>
+        <p class="wizard-step-desc">Upload a valid government-issued ID and any other required documents.</p>
+        <div class="upload-box" onclick="document.getElementById('file-input').click()">
+          <div class="upload-icon">📎</div>
+          <div class="upload-label">Click to upload files</div>
+          <div class="upload-sub">PDF, JPG, PNG · Max 5MB each</div>
+        </div>
+        <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" class="hidden-step-element" onchange="handleFiles(this.files)"/>
+        <div id="file-list" class="file-list-preview"></div>
+      </div>
+
+      <div class="wizard-action-between">
+        <button class="btn btn-ghost" onclick="goStep(1)">← Back</button>
+        <button class="btn btn-primary" onclick="goStep(3)">Review →</button>
+      </div>
+    </div>
+
+    <div id="step-3" class="hidden-step-element">
+      <div class="info-box">ℹ️ Please review your details before submitting. You cannot edit after submission.</div>
+      <div class="card-sm spacing-bottom-md">
+        <p class="wizard-step-title">Request summary</p>
+        <table class="summary-table">
+          <tr><td class="summary-label w-40">Document type</td><td id="rev-type" class="summary-value"></td></tr>
+          <tr><td class="summary-label">Full name</td>      <td id="rev-name" class="summary-value"></td></tr>
+          <tr><td class="summary-label">Address</td>        <td id="rev-address" class="summary-text"></td></tr>
+          <tr><td class="summary-label">Purpose</td>        <td id="rev-purpose" class="summary-text"></td></tr>
+          <tr><td class="summary-label">Processing fee</td> <td id="rev-fee" class="summary-price"></td></tr>
+        </table>
+      </div>
+      <div class="wizard-action-between">
+        <button class="btn btn-ghost" onclick="goStep(2)">← Back</button>
+        <button class="btn btn-primary" id="submit-btn" onclick="submitRequest()">Submit request</button>
+      </div>
+    </div>
+
+    <div id="step-success" class="hidden-step-element">
+      <div class="card-sm success-card-panel">
+        <div class="success-card-emoji">🎉</div>
+        <h2 class="success-card-title">Request submitted!</h2>
+        <p class="success-card-subtitle">Your reference number is:</p>
+        <div id="ref-display" class="success-ref-badge"></div>
+        <p class="success-card-disclaimer">Save this number to track your request. You will be notified by email when it is ready.</p>
+        <div class="success-action-cluster">
+          <a href="my-requests.html" class="btn btn-primary">View my requests</a>
+          <a href="dashboard.html"   class="btn btn-ghost">Back to dashboard</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Admin Panel</span>
+        </div>
+      </div>
+      <div class="nav-links-admin">
+        <a href="admin-requests.html" class="nav-link">Requests</a>
+        <a href="admin-appointments.html" class="nav-link">Appointments</a>
+        <a href="admin-payments.html" class="nav-link">Payments</a>
+        <a href="admin-users.html" class="nav-link">Users</a>
+        <a href="admin-reports.html" class="nav-link">Reports</a>
+        <span class="badge badge-approved badge-admin-nav">Admin</span>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <div class="greet-row">
+      <div>
+        <h1 class="greet-name">Admin Dashboard</h1>
+        <div class="greet-sub">Overview of all barangay document requests.</div>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon icon-blue">📄</div>
+        <div class="stat-val">24</div>
+        <div class="stat-label">Total requests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon icon-yellow">⏳</div>
+        <div class="stat-val">8</div>
+        <div class="stat-label">Pending review</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon icon-green">✅</div>
+        <div class="stat-val">12</div>
+        <div class="stat-label">Approved</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon icon-blue">📅</div>
+        <div class="stat-val">5</div>
+        <div class="stat-label">Appointments today</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon icon-green">💳</div>
+        <div class="stat-val">₱850</div>
+        <div class="stat-label">Collected this month</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon icon-purple">👥</div>
+        <div class="stat-val">18</div>
+        <div class="stat-label">Registered users</div>
+      </div>
+    </div>
+
+    <!-- Quick nav -->
+    <div class="section-title">Quick actions</div>
+    <div class="quick-grid">
+      <a href="admin-requests.html" class="quick-card">
+        <div class="quick-icon icon-yellow">📋</div>
+        <div class="quick-title">Review requests</div>
+        <div class="quick-desc">8 pending requests waiting</div>
+      </a>
+      <a href="admin-appointments.html" class="quick-card">
+        <div class="quick-icon icon-blue">📅</div>
+        <div class="quick-title">Appointments</div>
+        <div class="quick-desc">Manage pickup schedules</div>
+      </a>
+      <a href="admin-payments.html" class="quick-card">
+        <div class="quick-icon icon-green">💳</div>
+        <div class="quick-title">Payments</div>
+        <div class="quick-desc">Mark paid / unpaid</div>
+      </a>
+      <a href="admin-users.html" class="quick-card">
+        <div class="quick-icon icon-purple">👥</div>
+        <div class="quick-title">User accounts</div>
+        <div class="quick-desc">Manage roles and access</div>
+      </a>
+      <a href="admin-reports.html" class="quick-card">
+        <div class="quick-icon icon-amber">📊</div>
+        <div class="quick-title">Reports</div>
+        <div class="quick-desc">Monthly request charts</div>
+      </a>
+    </div>
+
+    <!-- Recent requests -->
+    <div class="section-title">
+      Recent requests
+      <a href="admin-requests.html" class="see-all">See all →</a>
+    </div>
+    <div class="list-card" id="admin-recent"></div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>

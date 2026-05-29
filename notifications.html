@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Notifications — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div><span class="logo-text">E-Proseso</span><span class="logo-sub">Barangay Document System</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">← Dashboard</a>
+        <div class="nav-avatar" id="nav-avatar">JD</div>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body page-body-narrow">
+    <div class="notif-header">
+      <h1 class="page-title text-no-margin">Notifications</h1>
+      <button class="btn btn-ghost btn-sm" onclick="markAllRead()">Mark all as read</button>
+    </div>
+
+    <div class="list-card" id="notif-list"></div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>

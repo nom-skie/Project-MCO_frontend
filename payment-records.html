@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Records — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Barangay Document System</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">← Dashboard</a>
+        <div class="nav-avatar" id="nav-avatar">JD</div>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <div class="greet-row">
+      <div>
+        <h1 class="page-title">Payment records</h1>
+        <p class="page-subtitle text-no-margin">View fees and payment status for your document requests.</p>
+      </div>
+    </div>
+
+    <div class="stats-grid stats-grid-container" id="payment-stats"></div>
+
+    <div class="filter-tabs-container">
+      <button class="filter-btn active" onclick="filterPayments('all',this)">All</button>
+      <button class="filter-btn" onclick="filterPayments('unpaid',this)">Unpaid</button>
+      <button class="filter-btn" onclick="filterPayments('paid',this)">Paid</button>
+      <button class="filter-btn" onclick="filterPayments('free',this)">Free</button>
+    </div>
+
+    <div class="list-card" id="payment-list"></div>
+
+    <div class="info-box">💳 Payments are collected at the barangay hall upon document pickup. Please bring your reference number.</div>
+
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>

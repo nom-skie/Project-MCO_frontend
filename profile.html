@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div><span class="logo-text">E-Proseso</span><span class="logo-sub">Barangay Document System</span></div>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">← Dashboard</a>
+        <div class="nav-avatar" id="nav-avatar">JD</div>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body page-body-narrow">
+    <h1 class="page-title">My profile</h1>
+    <p class="page-subtitle">Update your personal information and password.</p>
+
+    <div class="card-sm profile-avatar-row">
+      <div id="profile-avatar" class="avatar-large">JD</div>
+      <div>
+        <div id="profile-name" class="profile-display-name">Juan dela Cruz</div>
+        <div id="profile-email" class="profile-display-email">juan@example.com</div>
+        <div class="badge-spacing-wrapper"><span class="badge badge-approved">Resident</span></div>
+      </div>
+    </div>
+
+    <div class="section-title">Personal information</div>
+    <div class="card-sm spacing-bottom-md">
+      <div class="form-grid-half">
+        <div class="form-group">
+          <label for="p-fname">First name</label>
+          <input type="text" id="p-fname"/>
+        </div>
+        <div class="form-group">
+          <label for="p-lname">Last name</label>
+          <input type="text" id="p-lname"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="p-email">Email address</label>
+        <input type="email" id="p-email"/>
+      </div>
+      <div class="form-group text-no-margin">
+        <label for="p-phone">Phone number</label>
+        <input type="text" id="p-phone" placeholder="09XX XXX XXXX"/>
+      </div>
+    </div>
+    <button class="btn btn-primary" onclick="saveProfile()">Save changes</button>
+
+    <div class="divider section-divider"></div>
+
+    <div class="section-title">Change password</div>
+    <div class="card-sm spacing-bottom-md">
+      <div class="form-group">
+        <label for="p-current">Current password</label>
+        <input type="password" id="p-current" placeholder="••••••••"/>
+      </div>
+      <div class="form-group">
+        <label for="p-new">New password</label>
+        <input type="password" id="p-new" placeholder="At least 8 characters"/>
+      </div>
+      <div class="form-group text-no-margin">
+        <label for="p-confirm">Confirm new password</label>
+        <input type="password" id="p-confirm" placeholder="Repeat new password"/>
+      </div>
+    </div>
+    <button class="btn btn-outline" onclick="changePassword()">Update password</button>
+
+    <div class="divider section-divider"></div>
+
+    <div class="section-title text-primary-color">Danger zone</div>
+    <div class="card-sm card-danger-border">
+      <p class="danger-zone-text">Once you delete your account, all your data will be permanently removed. This action cannot be undone.</p>
+      <button class="btn btn-danger btn-sm" onclick="confirmDelete()">Delete my account</button>
+    </div>
+
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>

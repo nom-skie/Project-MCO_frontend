@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Accounts — E-Proseso Admin</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Admin Panel</span>
+        </div>
+      </div>
+      <div class="nav-links-admin">
+        <a href="admin-dashboard.html" class="nav-link">← Dashboard</a>
+        <span class="badge badge-approved badge-admin-nav">Admin</span>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <div class="greet-row">
+      <div>
+        <h1 class="page-title">User accounts</h1>
+        <p class="page-subtitle mb-0">Manage roles and access for all registered users.</p>
+      </div>
+    </div>
+
+    <div class="stats-grid mb-28">
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-purple">👥</div>
+        <div class="stat-val" id="user-stat-total">18</div>
+        <div class="stat-label">Total users</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-accent">🙍</div>
+        <div class="stat-val" id="user-stat-residents">15</div>
+        <div class="stat-label">Residents</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-success">🧑‍💼</div>
+        <div class="stat-val" id="user-stat-staff">2</div>
+        <div class="stat-label">Barangay staff</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-warning">🔑</div>
+        <div class="stat-val" id="user-stat-admins">1</div>
+        <div class="stat-label">Administrators</div>
+      </div>
+    </div>
+
+    <div class="flex-wrap gap-8 mb-20">
+      <button class="filter-btn active" onclick="filterUsers('all',this)">All</button>
+      <button class="filter-btn" onclick="filterUsers('resident',this)">Residents</button>
+      <button class="filter-btn" onclick="filterUsers('staff',this)">Staff</button>
+      <button class="filter-btn" onclick="filterUsers('admin',this)">Admins</button>
+      <button class="filter-btn" onclick="filterUsers('inactive',this)">Inactive</button>
+    </div>
+
+    <div class="list-card" id="user-list"></div>
+  </div>
+
+  <div id="user-modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="modal-title">Edit user</h2>
+      <p id="user-modal-name" class="modal-info"></p>
+      
+      <div class="form-group">
+        <label for="user-modal-role">Role</label>
+        <select id="user-modal-role">
+          <option value="resident">Resident</option>
+          <option value="staff">Barangay Staff</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </div>
+      
+      <div class="form-group mb-20">
+        <label for="user-modal-status">Account status</label>
+        <select id="user-modal-status">
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
+      </div>
+      
+      <div class="flex-wrap gap-10">
+        <button class="btn btn-primary" onclick="saveUser()">Save</button>
+        <button class="btn btn-ghost" onclick="closeUserModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>
