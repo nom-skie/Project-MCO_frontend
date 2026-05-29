@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Appointments — E-Proseso Admin</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Admin Panel</span>
+        </div>
+      </div>
+      <div class="nav-links-admin">
+        <a href="admin-dashboard.html" class="nav-link">← Dashboard</a>
+        <span class="badge badge-approved badge-admin-nav">Admin</span>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <div class="greet-row">
+      <div>
+        <h1 class="page-title">Appointments</h1>
+        <p class="page-subtitle mb-0">View and manage all scheduled document pickup appointments.</p>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-grid mb-28">
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-blue">📅</div>
+        <div class="stat-val" id="appt-stat-today">3</div>
+        <div class="stat-label">Today's appointments</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-amber">⏳</div>
+        <div class="stat-val" id="appt-stat-upcoming">8</div>
+        <div class="stat-label">Upcoming this week</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon stat-icon-green">✅</div>
+        <div class="stat-val" id="appt-stat-done">14</div>
+        <div class="stat-label">Completed this month</div>
+      </div>
+    </div>
+
+    <!-- Filter -->
+    <div class="flex-wrap gap-8 mb-20">
+      <button class="filter-btn active" onclick="filterApptAdmin('all',this)">All</button>
+      <button class="filter-btn" onclick="filterApptAdmin('today',this)">Today</button>
+      <button class="filter-btn" onclick="filterApptAdmin('upcoming',this)">Upcoming</button>
+      <button class="filter-btn" onclick="filterApptAdmin('completed',this)">Completed</button>
+    </div>
+
+    <div class="list-card" id="admin-appt-list"></div>
+  </div>
+
+  <!-- Cancel/reschedule modal -->
+  <div id="appt-modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="modal-title">Manage appointment</h2>
+      <p id="appt-modal-info" class="modal-info"></p>
+      
+      <div class="form-group">
+        <label for="appt-modal-status">Status</label>
+        <select id="appt-modal-status">
+          <option value="scheduled">Scheduled</option>
+          <option value="completed">Completed</option>
+          <option value="cancelled">Cancelled</option>
+          <option value="no-show">No-show</option>
+        </select>
+      </div>
+
+      <div class="form-group mb-20">
+        <label for="appt-modal-note">Staff note (optional)</label>
+        <textarea id="appt-modal-note" placeholder="Add a note…"></textarea>
+      </div>
+
+      <div class="flex-wrap gap-10">
+        <button class="btn btn-primary" onclick="saveApptStatus()">Save</button>
+        <button class="btn btn-ghost" onclick="closeApptModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>
