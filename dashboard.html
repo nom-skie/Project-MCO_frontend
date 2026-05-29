@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard – E-Proseso</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="logo-mark">🏠</div>
+          <div>
+            <span class="logo-text">E-Proseso</span>
+            <span class="logo-sub">Barangay Document System</span>
+          </div>
+        </div>
+
+        <div class="nav-links nav-links-spaced">
+          <a href="notifications.html" class="nav-bell" title="Notifications">
+            📢
+            <span class="notif-dot"></span>
+          </a>
+          <div class="nav-avatar" id="nav-avatar" title="Profile">JD</div>
+          <a href="login.html" class="btn btn-outline btn-logout-size">
+            Logout
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="db-body">
+
+      <div class="greet-row">
+        <div>
+          <div class="greet-name" id="greet-name">Good morning, Juan!</div>
+          <div class="greet-sub">Here's what's happening with your documents.</div>
+        </div>
+        <a href="request.html" class="btn btn-primary">+ New request</a>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon bg-total">📄</div>
+          <div class="stat-val" id="stat-total">4</div>
+          <div class="stat-label">Total requests</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-pending">⏳</div>
+          <div class="stat-val" id="stat-pending">2</div>
+          <div class="stat-label">Pending</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-approved">✅</div>
+          <div class="stat-val" id="stat-approved">1</div>
+          <div class="stat-label">Approved</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon bg-ready">📦</div>
+          <div class="stat-val" id="stat-ready">1</div>
+          <div class="stat-label">Ready for pickup</div>
+        </div>
+      </div>
+
+      <div class="section-title">Quick actions</div>
+      <div class="quick-grid">
+        <a href="request.html" class="quick-card">
+          <div class="quick-icon bg-total">📝</div>
+          <div class="quick-title">Request document</div>
+          <div class="quick-desc">Clearance, residency, business permit</div>
+        </a>
+        <a href="my-requests.html" class="quick-card">
+          <div class="quick-icon bg-pending">📋</div>
+          <div class="quick-title">Track requests</div>
+          <div class="quick-desc">View status of all your submissions</div>
+        </a>
+        <a href="appointments.html" class="quick-card">
+          <div class="quick-icon bg-appoint">📅</div>
+          <div class="quick-title">My appointments</div>
+          <div class="quick-desc">Schedule or view pickup slots</div>
+        </a>
+        <a href="payment-records.html" class="quick-card">
+          <div class="quick-icon bg-payment">💳</div>
+          <div class="quick-title">Payment records</div>
+          <div class="quick-desc">View fees and payment status</div>
+        </a>
+        <a href="profile.html" class="quick-card">
+          <div class="quick-icon bg-profile">👤</div>
+          <div class="quick-title">My profile</div>
+          <div class="quick-desc">Update your account info</div>
+        </a>
+      </div>
+
+      <div class="section-title">
+        Recent requests
+        <a href="my-requests.html" class="see-all">See all →</a>
+      </div>
+      <div class="requests-card" id="requests-list"></div>
+
+      <div class="section-title">Upcoming appointment</div>
+      <div class="appt-card">
+        <div class="appt-inner">
+          <div class="appt-cal">
+            <div class="appt-day">30</div>
+            <div class="appt-mon">May</div>
+          </div>
+          <div class="appt-info">
+            <div class="appt-title">Barangay clearance pickup</div>
+            <div class="appt-sub">⏰ 9:00 AM &nbsp;·&nbsp; 📍 Barangay Hall, Window 2</div>
+          </div>
+          <a href="appointments.html" class="btn-reschedule">Reschedule</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="toast"></div>
+    <script src="function.js"></script>
+  </body>
+</html>

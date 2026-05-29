@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Requests — E-Proseso Admin</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Admin Panel</span>
+        </div>
+      </div>
+      <div class="nav-links-admin">
+        <a href="admin-dashboard.html" class="nav-link">← Dashboard</a>
+        <span class="badge badge-approved badge-admin-nav">Admin</span>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+    <h1 class="page-title">Document requests</h1>
+    <p class="page-subtitle">Review, approve, and update all resident document requests.</p>
+
+    <div class="flex-wrap gap-8 mb-20">
+      <button class="filter-btn active" onclick="filterReqs('all',this)">All</button>
+      <button class="filter-btn" onclick="filterReqs('pending',this)">Pending</button>
+      <button class="filter-btn" onclick="filterReqs('approved',this)">Approved</button>
+      <button class="filter-btn" onclick="filterReqs('ready',this)">Ready for pickup</button>
+      <button class="filter-btn" onclick="filterReqs('rejected',this)">Rejected</button>
+    </div>
+
+    <div class="list-card" id="req-list"></div>
+  </div>
+
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal-content">
+      <h2 class="modal-title">Update request status</h2>
+      <p id="modal-ref" class="modal-info"></p>
+      
+      <div class="form-group">
+        <label for="modal-status">New status</label>
+        <select id="modal-status">
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="ready">Ready for pickup</option>
+          <option value="rejected">Rejected</option>
+        </select>
+      </div>
+      
+      <div class="form-group mb-20">
+        <label for="modal-note">Staff note (optional)</label>
+        <textarea id="modal-note" placeholder="Add a note for the resident…"></textarea>
+      </div>
+      
+      <div class="flex-wrap gap-10">
+        <button class="btn btn-primary" onclick="saveStatus()">Save</button>
+        <button class="btn btn-ghost" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+  <script src="function.js"></script>
+</body>
+</html>
