@@ -234,7 +234,7 @@ const fmtDate = (iso) => {
  * @returns {string} ISO 8601 date string (e.g. "2026-05-30").
  */
 const dateToISO = (humanDate) =>
-  new Date(humanDate).toISOString().split("T")[0];
+  { const d = new Date(humanDate); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; };
 
 /**
  * Converts a 12-hour time string to an ISO time string (HH:MM:SS).
@@ -1008,7 +1008,7 @@ function renderCalendar() {
   header.textContent = `${MONTHS[curMonth]} ${curYear}`;
   const days  = document.getElementById("cal-days");
   const today = new Date(new Date().toDateString());
-  const first = new Date(curYear, curMonth, 1).getDay();
+  const first = (new Date(curYear, curMonth, 1).getDay() + 6) % 7;
   const total = new Date(curYear, curMonth + 1, 0).getDate();
 
   let html = "<div></div>".repeat(first);
