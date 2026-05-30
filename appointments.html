@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appointments — E-Proseso</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="logo-mark">🏠</div>
+          <div>
+            <span class="logo-text">E-Proseso</span
+            ><span class="logo-sub">Barangay Document System</span>
+          </div>
+        </div>
+        <div class="nav-links gap-8">
+          <a href="dashboard.html" class="nav-link">← Dashboard</a>
+          <div class="nav-avatar" id="nav-avatar"></div>
+          <button class="btn btn-ghost btn-sm" onclick="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-body">
+      <div class="greet-row">
+        <div>
+          <h1 class="page-title">Appointments</h1>
+          <p class="page-subtitle mb-0">Schedule your document pickup slots.</p>
+        </div>
+      </div>
+
+      <div class="appt-two-col">
+        <div>
+          <div class="section-title">Select a date</div>
+          <div class="card-sm mb-16">
+            <div class="calendar-nav">
+              <button class="btn btn-ghost btn-sm" onclick="changeMonth(-1)">
+                ←
+              </button>
+              <span id="cal-header" class="calendar-header-text"></span>
+              <button class="btn btn-ghost btn-sm" onclick="changeMonth(1)">
+                →
+              </button>
+            </div>
+            <div class="calendar-grid">
+              <div class="cal-dow">Su</div>
+              <div class="cal-dow">Mo</div>
+              <div class="cal-dow">Tu</div>
+              <div class="cal-dow">We</div>
+              <div class="cal-dow">Th</div>
+              <div class="cal-dow">Fr</div>
+              <div class="cal-dow">Sa</div>
+            </div>
+            <div id="cal-days" class="calendar-grid mt-4"></div>
+          </div>
+
+          <div class="section-title">Select a time slot</div>
+          <div class="card-sm">
+            <div id="time-slots" class="time-slots-grid">
+              <p class="time-slots-placeholder">
+                Select a date first to see available slots.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-title">Booking details</div>
+          <div class="card-sm mb-16">
+            <div class="form-group">
+              <label for="appt-request">Document request</label>
+              <select id="appt-request">
+                <option value="">Select a request…</option>
+              </select>
+            </div>
+            <div class="form-group mb-0">
+              <label>Selected slot</label>
+              <div id="selected-slot" class="slot-display-box">
+                No slot selected yet
+              </div>
+            </div>
+          </div>
+          <div class="warn-box">
+            ⚠️ Each appointment slot can only be booked once. Please arrive on
+            time.
+          </div>
+          <button
+            class="btn btn-primary full-btn"
+            id="book-btn"
+            onclick="bookAppointment()"
+            disabled
+          >
+            Book appointment
+          </button>
+
+          <div class="section-title mt-24">My upcoming appointments</div>
+          <div class="list-card" id="appt-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+    <script src="function.js"></script>
+  </body>
+</html>

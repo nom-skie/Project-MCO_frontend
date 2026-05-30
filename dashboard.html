@@ -27,7 +27,8 @@
             📢
             <span class="notif-dot"></span>
           </a>
-          <div class="nav-avatar" id="nav-avatar" title="Profile">JD</div>
+          <!-- Initials populated by applyNavAvatar() called inside updateGreeting() -->
+          <div class="nav-avatar" id="nav-avatar" title="Profile"></div>
           <a href="login.html" class="btn btn-outline btn-logout-size">
             Logout
           </a>
@@ -39,31 +40,33 @@
 
       <div class="greet-row">
         <div>
-          <div class="greet-name" id="greet-name">Good morning, Juan!</div>
+          <!-- Greeting and name populated by updateGreeting() in function.js -->
+          <div class="greet-name" id="greet-name"></div>
           <div class="greet-sub">Here's what's happening with your documents.</div>
         </div>
         <a href="request.html" class="btn btn-primary">+ New request</a>
       </div>
 
+      <!-- Stats: all populated by updateStats() in function.js -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-icon bg-total">📄</div>
-          <div class="stat-val" id="stat-total">4</div>
+          <div class="stat-val" id="stat-total">—</div>
           <div class="stat-label">Total requests</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon bg-pending">⏳</div>
-          <div class="stat-val" id="stat-pending">2</div>
+          <div class="stat-val" id="stat-pending">—</div>
           <div class="stat-label">Pending</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon bg-approved">✅</div>
-          <div class="stat-val" id="stat-approved">1</div>
+          <div class="stat-val" id="stat-approved">—</div>
           <div class="stat-label">Approved</div>
         </div>
         <div class="stat-card">
           <div class="stat-icon bg-ready">📦</div>
-          <div class="stat-val" id="stat-ready">1</div>
+          <div class="stat-val" id="stat-ready">—</div>
           <div class="stat-label">Ready for pickup</div>
         </div>
       </div>
@@ -101,22 +104,16 @@
         Recent requests
         <a href="my-requests.html" class="see-all">See all →</a>
       </div>
+      <!-- Populated by renderRequests() in function.js -->
       <div class="requests-card" id="requests-list"></div>
 
       <div class="section-title">Upcoming appointment</div>
-      <div class="appt-card">
-        <div class="appt-inner">
-          <div class="appt-cal">
-            <div class="appt-day">30</div>
-            <div class="appt-mon">May</div>
-          </div>
-          <div class="appt-info">
-            <div class="appt-title">Barangay clearance pickup</div>
-            <div class="appt-sub">⏰ 9:00 AM &nbsp;·&nbsp; 📍 Barangay Hall, Window 2</div>
-          </div>
-          <a href="appointments.html" class="btn-reschedule">Reschedule</a>
-        </div>
-      </div>
+      <!--
+        Populated by renderDashboardAppointment() in function.js.
+        Shows real next scheduled appointment or "No upcoming appointments."
+        when there are none. No hardcoded date/time/document here.
+      -->
+      <div class="appt-card" id="appt-card"></div>
 
     </div>
 

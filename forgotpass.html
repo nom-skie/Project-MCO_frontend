@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password – E-Proseso</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-inner">
+        <div class="nav-logo">
+          <div class="logo-mark">🏠</div>
+          <div>
+            <span class="logo-text">E-Proseso</span>
+            <span class="logo-sub">Barangay Document System</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-center">
+
+      <div class="card" id="step-email">
+        <div class="fp-icon">🔒</div>
+
+        <h1 class="page-title">Forgot password?</h1>
+        <p class="page-subtitle">
+          Enter your registered email and we'll send you a link to reset your password.
+        </p>
+
+        <div class="form-group">
+          <label for="fp-email">Email address</label>
+          <input
+            type="email"
+            id="fp-email"
+            placeholder="you@example.com"
+            autocomplete="email"
+          />
+          <p class="fp-error" id="fp-error">Please enter a valid email address.</p>
+        </div>
+
+        <button class="btn btn-primary full-btn" id="fp-submit" onclick="handleSubmit()">
+          Send reset link
+        </button>
+
+        <br /><br />
+        <p style="text-align:center">
+          <a href="login.html">← Back to login</a>
+        </p>
+      </div>
+
+      <!-- Step 2: Confirmation -->
+      <div class="card" id="step-success" style="display:none; text-align:center">
+        <div class="fp-success-icon">✉️</div>
+
+        <h1 class="page-title">Check your email</h1>
+        <p class="page-subtitle">
+          We sent a password reset link to
+          <strong id="sent-to" style="color:var(--text)"></strong>.
+          Check your inbox and follow the instructions.
+        </p>
+
+        <div class="fp-hint">
+          Didn't receive it? Check your spam folder, or
+          <a href="#" onclick="resend(); return false;">resend the email</a>.
+        </div>
+
+        <br />
+        <p>
+          <a href="login.html">← Back to login</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div id="toast"></div>
+    <script src="function.js"></script>
+  </body>
+</html>
