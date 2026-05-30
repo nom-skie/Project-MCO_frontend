@@ -16,7 +16,7 @@
       </div>
       <div class="nav-links">
         <a href="dashboard.html" class="nav-link">← Dashboard</a>
-        <div class="nav-avatar" id="nav-avatar">JD</div>
+        <div class="nav-avatar" id="nav-avatar"></div>
         <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
       </div>
     </div>
@@ -27,11 +27,13 @@
     <p class="page-subtitle">Update your personal information and password.</p>
 
     <div class="card-sm profile-avatar-row">
-      <div id="profile-avatar" class="avatar-large">JD</div>
+      <div id="profile-avatar" class="avatar-large"></div>
       <div>
-        <div id="profile-name" class="profile-display-name">Juan dela Cruz</div>
-        <div id="profile-email" class="profile-display-email">juan@example.com</div>
-        <div class="badge-spacing-wrapper"><span class="badge badge-approved">Resident</span></div>
+        <div id="profile-name" class="profile-display-name"></div>
+        <div id="profile-email" class="profile-display-email"></div>
+        <div class="badge-spacing-wrapper">
+          <span class="badge badge-approved" id="profile-role-badge">Resident</span>
+        </div>
       </div>
     </div>
 
@@ -88,6 +90,7 @@
   </div>
 
   <div id="toast"></div>
+  <script src="config.js"></script>
   <script src="function.js"></script>
 </body>
 </html>

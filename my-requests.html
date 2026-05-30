@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Requests — E-Proseso</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="logo-mark">🏠</div>
+        <div>
+          <span class="logo-text">E-Proseso</span>
+          <span class="logo-sub">Barangay Document System</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="dashboard.html" class="nav-link">← Dashboard</a>
+        <!-- Initials populated by applyNavAvatar() in function.js -->
+        <div class="nav-avatar" id="nav-avatar"></div>
+        <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-body">
+
+    <div class="greet-row">
+      <div>
+        <h1 class="page-title">My requests</h1>
+        <p class="page-subtitle text-no-margin">Track and manage all your document requests.</p>
+      </div>
+      <a href="request.html" class="btn btn-primary">+ New request</a>
+    </div>
+
+    <div class="filter-tabs-container">
+      <button class="filter-btn active" data-filter="all"      onclick="filterRequests('all',this)">All</button>
+      <button class="filter-btn"        data-filter="pending"  onclick="filterRequests('pending',this)">Pending</button>
+      <button class="filter-btn"        data-filter="approved" onclick="filterRequests('approved',this)">Approved</button>
+      <button class="filter-btn"        data-filter="ready"    onclick="filterRequests('ready',this)">Ready for pickup</button>
+      <button class="filter-btn"        data-filter="rejected" onclick="filterRequests('rejected',this)">Rejected</button>
+    </div>
+
+    <!-- Populated by renderList() in function.js -->
+    <div class="list-card" id="requests-list"></div>
+
+  </div>
+
+  <div id="toast"></div>
+  <script src="config.js"></script>
+  <script src="function.js"></script>
+</body>
+</html>

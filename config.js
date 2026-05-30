@@ -1,0 +1,1 @@
+window.EP_API_BASE = "https://project-mcobackend-production-f95f.up.railway.app";

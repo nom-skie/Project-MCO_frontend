@@ -47,7 +47,6 @@
         <a href="request.html" class="btn btn-primary">+ New request</a>
       </div>
 
-      <!-- Stats: all populated by updateStats() in function.js -->
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-icon bg-total">📄</div>
@@ -108,16 +107,12 @@
       <div class="requests-card" id="requests-list"></div>
 
       <div class="section-title">Upcoming appointment</div>
-      <!--
-        Populated by renderDashboardAppointment() in function.js.
-        Shows real next scheduled appointment or "No upcoming appointments."
-        when there are none. No hardcoded date/time/document here.
-      -->
       <div class="appt-card" id="appt-card"></div>
 
     </div>
 
     <div id="toast"></div>
+    <script src="config.js"></script>
     <script src="function.js"></script>
   </body>
 </html>
