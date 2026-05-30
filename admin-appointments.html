@@ -33,21 +33,21 @@
       </div>
     </div>
 
-    <!-- Stats -->
+    <!-- Stats: values start empty — populated by updateAdminApptStats() in function.js -->
     <div class="stats-grid mb-28">
       <div class="stat-card">
         <div class="stat-icon stat-icon-blue">📅</div>
-        <div class="stat-val" id="appt-stat-today">3</div>
+        <div class="stat-val" id="appt-stat-today">—</div>
         <div class="stat-label">Today's appointments</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon stat-icon-amber">⏳</div>
-        <div class="stat-val" id="appt-stat-upcoming">8</div>
+        <div class="stat-val" id="appt-stat-upcoming">—</div>
         <div class="stat-label">Upcoming this week</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon stat-icon-green">✅</div>
-        <div class="stat-val" id="appt-stat-done">14</div>
+        <div class="stat-val" id="appt-stat-done">—</div>
         <div class="stat-label">Completed this month</div>
       </div>
     </div>
@@ -68,7 +68,7 @@
     <div class="modal-content">
       <h2 class="modal-title">Manage appointment</h2>
       <p id="appt-modal-info" class="modal-info"></p>
-      
+
       <div class="form-group">
         <label for="appt-modal-status">Status</label>
         <select id="appt-modal-status">

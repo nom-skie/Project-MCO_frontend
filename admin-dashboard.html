@@ -22,7 +22,6 @@
         <a href="admin-appointments.html" class="nav-link">Appointments</a>
         <a href="admin-payments.html" class="nav-link">Payments</a>
         <a href="admin-users.html" class="nav-link">Users</a>
-        <a href="admin-reports.html" class="nav-link">Reports</a>
         <span class="badge badge-approved badge-admin-nav">Admin</span>
         <button class="btn btn-ghost btn-sm" onclick="logout()">Logout</button>
       </div>
@@ -40,43 +39,42 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-icon icon-blue">📄</div>
-        <div class="stat-val">24</div>
+        <div class="stat-val" id="admin-stat-total">—</div>
         <div class="stat-label">Total requests</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon icon-yellow">⏳</div>
-        <div class="stat-val">8</div>
+        <div class="stat-val" id="admin-stat-pending">—</div>
         <div class="stat-label">Pending review</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon icon-green">✅</div>
-        <div class="stat-val">12</div>
+        <div class="stat-val" id="admin-stat-approved">—</div>
         <div class="stat-label">Approved</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon icon-blue">📅</div>
-        <div class="stat-val">5</div>
+        <div class="stat-val" id="admin-stat-appts-today">—</div>
         <div class="stat-label">Appointments today</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon icon-green">💳</div>
-        <div class="stat-val">₱850</div>
+        <div class="stat-val" id="admin-stat-collected">—</div>
         <div class="stat-label">Collected this month</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon icon-purple">👥</div>
-        <div class="stat-val">18</div>
+        <div class="stat-val" id="admin-stat-users">—</div>
         <div class="stat-label">Registered users</div>
       </div>
     </div>
 
-    <!-- Quick nav -->
     <div class="section-title">Quick actions</div>
     <div class="quick-grid">
       <a href="admin-requests.html" class="quick-card">
         <div class="quick-icon icon-yellow">📋</div>
         <div class="quick-title">Review requests</div>
-        <div class="quick-desc">8 pending requests waiting</div>
+        <div class="quick-desc" id="admin-quick-pending">Loading…</div>
       </a>
       <a href="admin-appointments.html" class="quick-card">
         <div class="quick-icon icon-blue">📅</div>
@@ -93,14 +91,8 @@
         <div class="quick-title">User accounts</div>
         <div class="quick-desc">Manage roles and access</div>
       </a>
-      <a href="admin-reports.html" class="quick-card">
-        <div class="quick-icon icon-amber">📊</div>
-        <div class="quick-title">Reports</div>
-        <div class="quick-desc">Monthly request charts</div>
-      </a>
     </div>
 
-    <!-- Recent requests -->
     <div class="section-title">
       Recent requests
       <a href="admin-requests.html" class="see-all">See all →</a>

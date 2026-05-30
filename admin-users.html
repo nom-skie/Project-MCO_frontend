@@ -33,25 +33,26 @@
       </div>
     </div>
 
+    <!-- Stats: populated by _updateUserStats() in function.js -->
     <div class="stats-grid mb-28">
       <div class="stat-card">
         <div class="stat-icon stat-icon-purple">👥</div>
-        <div class="stat-val" id="user-stat-total">18</div>
+        <div class="stat-val" id="user-stat-total">—</div>
         <div class="stat-label">Total users</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon stat-icon-accent">🙍</div>
-        <div class="stat-val" id="user-stat-residents">15</div>
+        <div class="stat-val" id="user-stat-residents">—</div>
         <div class="stat-label">Residents</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon stat-icon-success">🧑‍💼</div>
-        <div class="stat-val" id="user-stat-staff">2</div>
+        <div class="stat-val" id="user-stat-staff">—</div>
         <div class="stat-label">Barangay staff</div>
       </div>
       <div class="stat-card">
         <div class="stat-icon stat-icon-warning">🔑</div>
-        <div class="stat-val" id="user-stat-admins">1</div>
+        <div class="stat-val" id="user-stat-admins">—</div>
         <div class="stat-label">Administrators</div>
       </div>
     </div>
@@ -71,7 +72,7 @@
     <div class="modal-content">
       <h2 class="modal-title">Edit user</h2>
       <p id="user-modal-name" class="modal-info"></p>
-      
+
       <div class="form-group">
         <label for="user-modal-role">Role</label>
         <select id="user-modal-role">
@@ -80,7 +81,7 @@
           <option value="admin">Administrator</option>
         </select>
       </div>
-      
+
       <div class="form-group mb-20">
         <label for="user-modal-status">Account status</label>
         <select id="user-modal-status">
@@ -88,7 +89,7 @@
           <option value="inactive">Inactive</option>
         </select>
       </div>
-      
+
       <div class="flex-wrap gap-10">
         <button class="btn btn-primary" onclick="saveUser()">Save</button>
         <button class="btn btn-ghost" onclick="closeUserModal()">Cancel</button>
